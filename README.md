@@ -2,6 +2,8 @@
 
 I build agent-native software: systems designed from the start to be read, run, and extended by AI agents as well as people. Lately that means software that builds software — autonomous routines that ship real, verified work on a schedule — and the production platforms those routines publish to.
 
+That practice is also a business. Through [Chama Inteligente](https://chamainteligente.com) — "intelligent flame" — I coach and consult on working with AI: one-on-one with individuals and small teams, and hands-on building software the AI-native way. The premise is that AI changes how we think, work, organize, and lead, so I teach the ideas and habits that let you grow with it instead of chasing each new tool. The repos below are that philosophy practiced in public.
+
 ## Where to look
 
 - **[autonomous-factory](https://github.com/elliothimmelfarb/autonomous-factory)** — a software factory that runs itself on a 3-hour heartbeat: a written constitution, a nine-phase build-and-verify workflow, and a self-improvement loop that reverts its own failed changes. The state files are real, from weeks of unattended runs.
