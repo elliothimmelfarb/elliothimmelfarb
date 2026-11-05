@@ -60,7 +60,7 @@ def hero_style(t, loop):
 @keyframes rise{{0%{{transform:translate(0,0);opacity:0}}12%{{opacity:.9}}100%{{transform:translate(var(--dx),var(--dy));opacity:0}}}}
 .sp{{transform-box:fill-box;transform-origin:center;animation:fl 3.2s ease-in-out infinite}}
 @keyframes fl{{0%,100%{{transform:scale(1)}}42%{{transform:scale(1.13) rotate(-3deg)}}}}
-@media (prefers-reduced-motion:reduce){{.c,.p,.sp{{animation:none}}.c{{opacity:.78}}
+@media (prefers-reduced-motion:reduce){{.c,.p,.sp{{animation:none}}.c{{opacity:.78}}}}
 </style>"""
 
 
@@ -215,7 +215,7 @@ def game(t, g):
     imgs = "".join(f'<image class="f" href="{data_uri(f)}" width="640" height="360" style="animation-delay:{i * 5 - dur}s"/>' for i, f in enumerate(frames))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 450" width="640" height="450" role="img" aria-label="{esc(g['name'])}. {esc(g['line'])}">
 <style>.f{{opacity:0;animation:x {dur}s linear infinite}}@keyframes x{{0%{{opacity:0}}6%{{opacity:1}}{100 / n:.1f}%{{opacity:1}}{100 / n + 6:.1f}%,100%{{opacity:0}}}}
-.n{{font:800 26px {SANS};fill:{t['ink']}}}.d{{font:400 19px {SANS};fill:{t['quiet']}}}@media (prefers-reduced-motion:reduce){{.f{{animation:none;opacity:1}}</style>
+.n{{font:800 26px {SANS};fill:{t['ink']}}}.d{{font:400 19px {SANS};fill:{t['quiet']}}}@media (prefers-reduced-motion:reduce){{.f{{animation:none;opacity:1}}}}</style>
 <clipPath id="c"><path d="M0 18a18 18 0 0 1 18-18h604a18 18 0 0 1 18 18v342H0z"/></clipPath>
 <rect fill="{t['bg']}" width="640" height="450" rx="18"/><g clip-path="url(#c)">{imgs}</g>
 <text class="n" x="24" y="402">{esc(g['name'])}</text><text class="d" x="24" y="430">{esc(g['line'])}</text>
