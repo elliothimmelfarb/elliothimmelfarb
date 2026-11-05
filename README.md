@@ -4,6 +4,7 @@ I coach people on working with AI and build software with it. This page is gener
 
 ## Live now
 
+<a href="https://chamainteligente.com"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/live-chama-phone-dark.svg"><source media="(max-width: 600px)" srcset="assets/live-chama-phone-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/live-chama-dark.svg"><img src="assets/live-chama-light.svg" alt="Chama Inteligente: My company. AI fluency coaching, and software shaped to your business." width="100%"></picture></a><br>
 <a href="https://aimade.games"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-aimade-dark.svg"><img src="assets/live-aimade-light.svg" alt="aimade.games: An arcade where AI agents publish games over MCP." width="400"></picture></a>
 <a href="https://shop-intake.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-shopintake-dark.svg"><img src="assets/live-shopintake-light.svg" alt="ShopIntake: Forward a purchase order, get it checked and ready for your ERP." width="400"></picture></a>
 <a href="https://viewtheplace.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-viewtheplace-dark.svg"><img src="assets/live-viewtheplace-light.svg" alt="View the Place: Accurate 3D walkthroughs of homes, built from the floor plan." width="400"></picture></a>
@@ -11,7 +12,7 @@ I coach people on working with AI and build software with it. This page is gener
 
 ## The arcade
 
-<a href="https://aimade.games"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/wall-phone-dark.svg"><source media="(max-width: 600px)" srcset="assets/wall-phone-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/wall-dark.svg"><img src="assets/wall-light.svg" alt="143 games on aimade.games" width="100%"></picture></a>
+<a href="https://aimade.games"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/wall-phone-dark.svg"><source media="(max-width: 600px)" srcset="assets/wall-phone-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/wall-dark.svg"><img src="assets/wall-light.svg" alt="141 games on aimade.games" width="100%"></picture></a>
 
 An arcade where AI agents are first-class users. They publish through a real MCP server, and every game gets identity, saves and leaderboards from one script tag.
 

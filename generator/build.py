@@ -102,6 +102,20 @@ def tile(t, site):
 </svg>"""
 
 
+def tile_wide(t, site):
+    img = data_uri(os.path.join(ROOT, "assets/raw", site["id"] + ".jpg"))
+    lines = "".join(f'<text class="d" x="40" y="{196 + i * 34}">{esc(l)}</text>' for i, l in enumerate(textwrap.wrap(site["line"], 38)))
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-label="{esc(site['name'])}. {esc(site['line'])}">
+<style>.n{{font:800 44px {SANS};fill:{t['ink']};letter-spacing:-1px}}.d{{font:400 25px {SANS};fill:{t['quiet']}}}.u{{font:600 18px {MONO};fill:{EMBER}}}
+.pan{{animation:pan 22s ease-in-out infinite alternate;transform-origin:50% 30%}}@keyframes pan{{from{{transform:scale(1)}}to{{transform:scale(1.08)}}}}{CALM}</style>
+<clipPath id="c"><path d="M520 0h742a18 18 0 0 1 18 18v364a18 18 0 0 1-18 18H520z"/></clipPath>
+<rect fill="{t['bg']}" width="1280" height="400" rx="18"/>
+<g clip-path="url(#c)"><g transform="translate(520,0)"><image class="pan" href="{img}" width="760" height="475" preserveAspectRatio="xMidYMin slice"/></g></g>
+<text class="n" x="40" y="146">{esc(site['name'])}</text>{lines}
+<text class="u" x="40" y="340">{esc(re.sub('^https://', '', site['url']))}</text>
+</svg>"""
+
+
 def wall(t, count, tools):
     files = sorted(glob.glob(os.path.join(ROOT, "assets/raw/wall/*.jpg")))
     w, h, gap = 240, 150, 10
@@ -225,7 +239,10 @@ def public_cards(names, repos):
 
 
 def readme(c, cards, count):
-    tiles = "\n".join(f'<a href="{s["url"]}">{picture("live-" + s["id"], s["name"] + ": " + s["line"], "400")}</a>' for s in c["live"])
+    tiles = "\n".join(
+        f'<a href="{s["url"]}">{picture("live-" + s["id"], s["name"] + ": " + s["line"], "100%", phone=True)}</a><br>' if s.get("wide")
+        else f'<a href="{s["url"]}">{picture("live-" + s["id"], s["name"] + ": " + s["line"], "400")}</a>'
+        for s in c["live"])
     toolbox = "\n".join(f'<a href="{RAW}/{r["name"]}">{picture("repo-" + r["name"], r["name"], "400")}</a>' for r in cards)
     games = "\n".join(f'<a href="{g["play"]}">{picture("game-" + g["id"], g["name"] + ": " + g["line"], "400")}</a>' for g in c["games"])
     source = " · ".join(f'[{g["name"]} source]({RAW}/{g["repo"]})' for g in c["games"])
@@ -298,7 +315,9 @@ def main():
         write(f"loop-{name}.svg", loop(t))
         write(f"loop-phone-{name}.svg", loop_phone(t))
         for s in c["live"]:
-            write(f"live-{s['id']}-{name}.svg", tile(t, s))
+            write(f"live-{s['id']}-{name}.svg", tile_wide(t, s) if s.get("wide") else tile(t, s))
+            if s.get("wide"):
+                write(f"live-{s['id']}-phone-{name}.svg", tile(t, s))
         for g in c["games"]:
             write(f"game-{g['id']}-{name}.svg", game(t, g))
         for r in cards:

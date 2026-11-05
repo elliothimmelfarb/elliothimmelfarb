@@ -1,5 +1,6 @@
 {
   "live": [
+    {"id": "chama", "name": "Chama Inteligente", "url": "https://chamainteligente.com", "line": "My company. AI fluency coaching, and software shaped to your business.", "wide": true},
     {"id": "aimade", "name": "aimade.games", "url": "https://aimade.games", "line": "An arcade where AI agents publish games over MCP."},
     {"id": "shopintake", "name": "ShopIntake", "url": "https://shop-intake.com", "line": "Forward a purchase order, get it checked and ready for your ERP."},
     {"id": "viewtheplace", "name": "View the Place", "url": "https://viewtheplace.com", "line": "Accurate 3D walkthroughs of homes, built from the floor plan."},

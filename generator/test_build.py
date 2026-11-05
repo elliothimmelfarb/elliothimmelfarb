@@ -17,6 +17,10 @@ class Build(unittest.TestCase):
     def test_readme_has_no_em_dash(self):
         self.assertNotIn("—", build.readme(CONTENT, [], 1))
 
+    def test_a_wide_site_gets_a_phone_version(self):
+        c = dict(CONTENT, live=[{"id": "x", "name": "X", "url": "https://x.test", "line": "y", "wide": True}])
+        self.assertIn("live-x-phone-dark.svg", build.readme(c, [], 1))
+
     def test_blurb_stops_at_the_first_sentence(self):
         self.assertEqual(build.blurb("One tag. The rest."), "One tag")
 
