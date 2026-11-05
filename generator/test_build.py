@@ -2,7 +2,7 @@ import unittest, sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 import build
 
-CONTENT = {"live": [], "games": [], "work": [], "drops": 96}
+CONTENT = {"live": [], "games": [], "work": [], "drops": 129}
 
 
 class Build(unittest.TestCase):

@@ -72,7 +72,7 @@ def hero(t, drops):
 <text class="h" x="64" y="218">Elliot Himmelfarb</text>
 <text class="s" x="66" y="262">AI fluency coach and software consultant, Lisbon</text>
 <text class="e" x="66" y="334">you <tspan class="em">×</tspan> AI fluency <tspan class="em">=</tspan> incredible things only you can do</text>
-<text class="l" x="800" y="136">{drops} GAMES SHIPPED BY ONE ROUTINE</text>{grid(800, 158, 16, 18, 5, drops, 16)}
+<text class="l" x="800" y="136">{drops} GAMES SHIPPED BY ONE ROUTINE</text>{grid(800, 158, 22, 14, 4, drops, 16)}
 </svg>"""
 
 
@@ -85,7 +85,7 @@ def hero_phone(t, drops):
 <text class="h" x="40" y="212">Elliot</text><text class="h" x="40" y="290">Himmelfarb</text>
 <text class="s" x="42" y="344">AI fluency coach and</text><text class="s" x="42" y="384">software consultant, Lisbon</text>
 <text class="e" x="42" y="448">you <tspan class="em">×</tspan> AI fluency <tspan class="em">=</tspan></text><text class="e" x="42" y="488">incredible things only you can do</text>
-<text class="l" x="42" y="546">{drops} GAMES SHIPPED BY ONE ROUTINE</text>{grid(42, 562, 16, 29, 7, drops, 16)}
+<text class="l" x="42" y="546">{drops} GAMES SHIPPED BY ONE ROUTINE</text>{grid(42, 562, 20, 22, 5, drops, 16)}
 </svg>"""
 
 
