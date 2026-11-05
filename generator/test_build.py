@@ -1,4 +1,4 @@
-import unittest, sys, os
+import glob, os, re, sys, unittest
 sys.path.insert(0, os.path.dirname(__file__))
 import build
 
@@ -26,6 +26,12 @@ class Build(unittest.TestCase):
 
     def test_blurb_drops_em_dashes(self):
         self.assertNotIn("\u2014", build.blurb("a \u2014 b"))
+
+    def test_every_generated_style_block_balances(self):
+        for name in glob.glob(os.path.join(build.ROOT, "assets/*.svg")):
+            with open(name) as f:
+                for css in re.findall(r"<style>(.*?)</style>", f.read(), re.S):
+                    self.assertEqual(css.count("{"), css.count("}"), name)
 
     def test_card_escapes_a_description(self):
         svg = build.card(build.THEMES["dark"], {"name": "a", "description": "x < y & z"})

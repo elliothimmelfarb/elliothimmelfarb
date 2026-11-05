@@ -55,11 +55,11 @@ def hero_style(t, loop):
 .h{{font:800 74px {SANS};fill:{t['ink']};letter-spacing:-2.5px}}.s{{font:400 25px {SANS};fill:{t['quiet']}}}
 .e{{font:600 22px {SANS};fill:{t['ink']}}}.em{{fill:{EMBER}}}.l{{font:700 13px {MONO};fill:{t['quiet']};letter-spacing:1.4px}}
 .base{{fill:{t['off']}}}.c{{fill:{EMBER};opacity:0;animation:burn {loop}s linear infinite}}
-@keyframes burn{{0%{{opacity:0}}1.5%{{opacity:1}}3%{{opacity:.78}}88%{{opacity:.78}}96%,100%{{opacity:0}}
+@keyframes burn{{0%{{opacity:0}}1.5%{{opacity:1}}3%{{opacity:.78}}88%{{opacity:.78}}96%,100%{{opacity:0}}}}
 .p{{fill:{EMBER};opacity:0;animation:rise 4s ease-out infinite}}
-@keyframes rise{{0%{{transform:translate(0,0);opacity:0}}12%{{opacity:.9}}100%{{transform:translate(var(--dx),var(--dy));opacity:0}}
+@keyframes rise{{0%{{transform:translate(0,0);opacity:0}}12%{{opacity:.9}}100%{{transform:translate(var(--dx),var(--dy));opacity:0}}}}
 .sp{{transform-box:fill-box;transform-origin:center;animation:fl 3.2s ease-in-out infinite}}
-@keyframes fl{{0%,100%{{transform:scale(1)}}42%{{transform:scale(1.13) rotate(-3deg)}}
+@keyframes fl{{0%,100%{{transform:scale(1)}}42%{{transform:scale(1.13) rotate(-3deg)}}}}
 @media (prefers-reduced-motion:reduce){{.c,.p,.sp{{animation:none}}.c{{opacity:.78}}
 </style>"""
 
@@ -93,7 +93,7 @@ def tile(t, site):
     img = data_uri(os.path.join(ROOT, "assets/raw", site["id"] + ".jpg"))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 420" width="640" height="420" role="img" aria-label="{esc(site['name'])}. {esc(site['line'])}">
 <style>.n{{font:800 28px {SANS};fill:{t['ink']};letter-spacing:-.6px}}.d{{font:400 20px {SANS};fill:{t['quiet']}}}.u{{font:600 16px {MONO};fill:{EMBER}}}
-.pan{{animation:pan 22s ease-in-out infinite alternate;transform-origin:50% 30%}}@keyframes pan{{from{{transform:scale(1)}}to{{transform:scale(1.08)}}{CALM}</style>
+.pan{{animation:pan 22s ease-in-out infinite alternate;transform-origin:50% 30%}}@keyframes pan{{from{{transform:scale(1)}}to{{transform:scale(1.08)}}}}{CALM}</style>
 <clipPath id="c"><path d="M0 18a18 18 0 0 1 18-18h604a18 18 0 0 1 18 18v282H0z"/></clipPath>
 <rect fill="{t['bg']}" width="640" height="420" rx="18"/>
 <g clip-path="url(#c)"><image class="pan" href="{img}" width="640" height="400" preserveAspectRatio="xMidYMin slice"/></g>
@@ -129,7 +129,7 @@ def wall(t, count, tools):
     shift = half * (w + gap)
     label = f"A scrolling wall of screenshots from {count} games on aimade.games."
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-label="{label}">
-<style>.a{{animation:l 70s linear infinite}}.b{{animation:r 70s linear infinite}}@keyframes l{{to{{transform:translateX(-{shift}px)}}@keyframes r{{from{{transform:translateX(-{shift}px)}}to{{transform:translateX(0)}}
+<style>.a{{animation:l 70s linear infinite}}.b{{animation:r 70s linear infinite}}@keyframes l{{to{{transform:translateX(-{shift}px)}}}}@keyframes r{{from{{transform:translateX(-{shift}px)}}to{{transform:translateX(0)}}}}
 .n{{font:800 24px {SANS};fill:{t['ink']}}}.d{{font:400 18px {SANS};fill:{t['quiet']}}}{CALM}</style>
 <defs><clipPath id="r"><rect width="{w}" height="{h}" rx="10"/></clipPath><clipPath id="o"><rect width="1280" height="400" rx="18"/></clipPath>{''.join(defs)}</defs>
 <g clip-path="url(#o)"><rect fill="{t['bg']}" width="1280" height="400"/>{''.join(rows)}</g>
@@ -183,7 +183,7 @@ def loop(t):
     wires = "".join(f'<path class="w" d="M{xs[i] + 90} 96H{xs[i + 1] - 90}"/>' for i in range(4))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 230" width="1100" height="230" role="img" aria-label="The loop the factory ran: heartbeat, read the constitution, build, verify, improve the factory. A failed improvement reverted itself.">
 <style>.b,.w{{fill:none;stroke:{t['line']};stroke-width:1.5}}.t{{font:600 17px {SANS};fill:{t['ink']}}}.n{{font:400 14px {MONO};fill:{t['quiet']}}}
-.on{{fill:none;stroke:{EMBER};stroke-width:3;opacity:0;animation:p 9s linear infinite}}@keyframes p{{0%{{opacity:0}}2%{{opacity:1}}15%{{opacity:1}}19%,100%{{opacity:0}}{CALM}</style>
+.on{{fill:none;stroke:{EMBER};stroke-width:3;opacity:0;animation:p 9s linear infinite}}@keyframes p{{0%{{opacity:0}}2%{{opacity:1}}15%{{opacity:1}}19%,100%{{opacity:0}}}}{CALM}</style>
 <rect fill="{t['bg']}" width="1100" height="230" rx="18"/>{wires}{boxes}
 <path class="w" stroke-dasharray="5 6" d="M1080 96V184H20V96"/>
 <text class="n" x="550" y="212" text-anchor="middle">a failed improvement reverted itself, then the heartbeat fired again</text>
@@ -214,7 +214,7 @@ def game(t, g):
     dur = n * 5
     imgs = "".join(f'<image class="f" href="{data_uri(f)}" width="640" height="360" style="animation-delay:{i * 5 - dur}s"/>' for i, f in enumerate(frames))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 450" width="640" height="450" role="img" aria-label="{esc(g['name'])}. {esc(g['line'])}">
-<style>.f{{opacity:0;animation:x {dur}s linear infinite}}@keyframes x{{0%{{opacity:0}}6%{{opacity:1}}{100 / n:.1f}%{{opacity:1}}{100 / n + 6:.1f}%,100%{{opacity:0}}
+<style>.f{{opacity:0;animation:x {dur}s linear infinite}}@keyframes x{{0%{{opacity:0}}6%{{opacity:1}}{100 / n:.1f}%{{opacity:1}}{100 / n + 6:.1f}%,100%{{opacity:0}}}}
 .n{{font:800 26px {SANS};fill:{t['ink']}}}.d{{font:400 19px {SANS};fill:{t['quiet']}}}@media (prefers-reduced-motion:reduce){{.f{{animation:none;opacity:1}}</style>
 <clipPath id="c"><path d="M0 18a18 18 0 0 1 18-18h604a18 18 0 0 1 18 18v342H0z"/></clipPath>
 <rect fill="{t['bg']}" width="640" height="450" rx="18"/><g clip-path="url(#c)">{imgs}</g>
@@ -240,7 +240,7 @@ def public_cards(names, repos):
 
 def readme(c, cards, count):
     tiles = "\n".join(
-        f'<a href="{s["url"]}">{picture("live-" + s["id"], s["name"] + ": " + s["line"], "100%", phone=True)}</a><br>' if s.get("wide")
+        f'<a href="{s["url"]}">{picture("live-" + s["id"], s["name"] + ": " + s["line"], "804", phone=True)}</a><br>' if s.get("wide")
         else f'<a href="{s["url"]}">{picture("live-" + s["id"], s["name"] + ": " + s["line"], "400")}</a>'
         for s in c["live"])
     toolbox = "\n".join(f'<a href="{RAW}/{r["name"]}">{picture("repo-" + r["name"], r["name"], "400")}</a>' for r in cards)
