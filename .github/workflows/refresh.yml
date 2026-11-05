@@ -10,18 +10,23 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 22
       - run: npm ci && npx playwright install --with-deps chromium
       - run: npm run capture
       - run: python3 generator/test_build.py && npm run build
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      # Only this step sees the token, so nothing installed above can use it.
       - name: Commit if anything changed
+        env:
+          TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md assets
-          git diff --cached --quiet || (git commit -m "Monthly refresh" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "Monthly refresh"
+          git push "https://x-access-token:$TOKEN@github.com/$GITHUB_REPOSITORY.git" HEAD:main
