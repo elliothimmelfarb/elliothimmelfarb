@@ -4,36 +4,36 @@ I coach people on working with AI and build software with it. This page is gener
 
 ## Live now
 
-<a href="https://aimade.games"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-aimade-dark.svg"><img src="assets/live-aimade-light.svg" alt="aimade.games: An arcade where AI agents publish games over MCP." width="49%"></picture></a>
-<a href="https://shop-intake.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-shopintake-dark.svg"><img src="assets/live-shopintake-light.svg" alt="ShopIntake: Forward a purchase order, get it checked and ready for your ERP." width="49%"></picture></a>
-<a href="https://viewtheplace.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-viewtheplace-dark.svg"><img src="assets/live-viewtheplace-light.svg" alt="View the Place: Accurate 3D walkthroughs of homes, built from the floor plan." width="49%"></picture></a>
-<a href="https://chamainteligente.com/hearth"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-hearth-dark.svg"><img src="assets/live-hearth-light.svg" alt="The Hearth: The members&#x27; room for coaching clients, with its own MCP server." width="49%"></picture></a>
+<a href="https://aimade.games"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-aimade-dark.svg"><img src="assets/live-aimade-light.svg" alt="aimade.games: An arcade where AI agents publish games over MCP." width="400"></picture></a>
+<a href="https://shop-intake.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-shopintake-dark.svg"><img src="assets/live-shopintake-light.svg" alt="ShopIntake: Forward a purchase order, get it checked and ready for your ERP." width="400"></picture></a>
+<a href="https://viewtheplace.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-viewtheplace-dark.svg"><img src="assets/live-viewtheplace-light.svg" alt="View the Place: Accurate 3D walkthroughs of homes, built from the floor plan." width="400"></picture></a>
+<a href="https://chamainteligente.com/hearth"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/live-hearth-dark.svg"><img src="assets/live-hearth-light.svg" alt="The Hearth: The members&#x27; room for coaching clients, with its own MCP server." width="400"></picture></a>
 
 ## The arcade
 
-<a href="https://aimade.games"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/wall-dark.svg"><img src="assets/wall-light.svg" alt="143 games on aimade.games" width="100%"></picture></a>
+<a href="https://aimade.games"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/wall-phone-dark.svg"><source media="(max-width: 600px)" srcset="assets/wall-phone-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/wall-dark.svg"><img src="assets/wall-light.svg" alt="143 games on aimade.games" width="100%"></picture></a>
 
 An arcade where AI agents are first-class users. They publish through a real MCP server, and every game gets identity, saves and leaderboards from one script tag.
 
 ## The machines
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/loop-dark.svg"><img src="assets/loop-light.svg" alt="The factory loop" width="100%"></picture>
+<picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/loop-phone-dark.svg"><source media="(max-width: 600px)" srcset="assets/loop-phone-light.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/loop-dark.svg"><img src="assets/loop-light.svg" alt="The factory loop" width="100%"></picture>
 
 [autonomous-factory](https://github.com/elliothimmelfarb/autonomous-factory) ran on a 3-hour heartbeat until I stopped it on 2026-07-06, and a routine shipped [96 physics games](https://github.com/elliothimmelfarb/aimade-drops) to the arcade, the last on 2026-09-10. Both are stopped, and the state files are all there to read.
 
 ## Open toolbox
 
-<a href="https://github.com/elliothimmelfarb/arcade-sdk"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-arcade-sdk-dark.svg"><img src="assets/repo-arcade-sdk-light.svg" alt="arcade-sdk" width="49%"></picture></a>
-<a href="https://github.com/elliothimmelfarb/aimade-mcp"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-aimade-mcp-dark.svg"><img src="assets/repo-aimade-mcp-light.svg" alt="aimade-mcp" width="49%"></picture></a>
-<a href="https://github.com/elliothimmelfarb/lead-qualifier"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-lead-qualifier-dark.svg"><img src="assets/repo-lead-qualifier-light.svg" alt="lead-qualifier" width="49%"></picture></a>
-<a href="https://github.com/elliothimmelfarb/autonomous-factory"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-autonomous-factory-dark.svg"><img src="assets/repo-autonomous-factory-light.svg" alt="autonomous-factory" width="49%"></picture></a>
-<a href="https://github.com/elliothimmelfarb/graph-engineering-demo"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-graph-engineering-demo-dark.svg"><img src="assets/repo-graph-engineering-demo-light.svg" alt="graph-engineering-demo" width="49%"></picture></a>
-<a href="https://github.com/elliothimmelfarb/aimade-drops"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-aimade-drops-dark.svg"><img src="assets/repo-aimade-drops-light.svg" alt="aimade-drops" width="49%"></picture></a>
+<a href="https://github.com/elliothimmelfarb/arcade-sdk"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-arcade-sdk-dark.svg"><img src="assets/repo-arcade-sdk-light.svg" alt="arcade-sdk" width="400"></picture></a>
+<a href="https://github.com/elliothimmelfarb/aimade-mcp"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-aimade-mcp-dark.svg"><img src="assets/repo-aimade-mcp-light.svg" alt="aimade-mcp" width="400"></picture></a>
+<a href="https://github.com/elliothimmelfarb/lead-qualifier"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-lead-qualifier-dark.svg"><img src="assets/repo-lead-qualifier-light.svg" alt="lead-qualifier" width="400"></picture></a>
+<a href="https://github.com/elliothimmelfarb/autonomous-factory"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-autonomous-factory-dark.svg"><img src="assets/repo-autonomous-factory-light.svg" alt="autonomous-factory" width="400"></picture></a>
+<a href="https://github.com/elliothimmelfarb/graph-engineering-demo"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-graph-engineering-demo-dark.svg"><img src="assets/repo-graph-engineering-demo-light.svg" alt="graph-engineering-demo" width="400"></picture></a>
+<a href="https://github.com/elliothimmelfarb/aimade-drops"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-aimade-drops-dark.svg"><img src="assets/repo-aimade-drops-light.svg" alt="aimade-drops" width="400"></picture></a>
 
 ## Games by hand, with agents
 
-<a href="https://mud-and-steel-kappa.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-mud-and-steel-dark.svg"><img src="assets/game-mud-and-steel-light.svg" alt="Mud and Steel: WWI trench defence. Every model, texture and sound is generated in code." width="49%"></picture></a>
-<a href="https://aimade.games/g/in-the-mountains"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-in-the-mountains-dark.svg"><img src="assets/game-in-the-mountains-light.svg" alt="In the Mountains: Real-time counterinsurgency on a custom WebGL2 terrain renderer." width="49%"></picture></a>
+<a href="https://mud-and-steel-kappa.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-mud-and-steel-dark.svg"><img src="assets/game-mud-and-steel-light.svg" alt="Mud and Steel: WWI trench defence, with every model and sound generated in code." width="400"></picture></a>
+<a href="https://aimade.games/g/in-the-mountains"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/game-in-the-mountains-dark.svg"><img src="assets/game-in-the-mountains-light.svg" alt="In the Mountains: Real-time counterinsurgency on a custom WebGL2 terrain renderer." width="400"></picture></a>
 
 [Mud and Steel source](https://github.com/elliothimmelfarb/mud-and-steel) · [In the Mountains source](https://github.com/elliothimmelfarb/in-the-mountains)
 

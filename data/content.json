@@ -7,7 +7,7 @@
   ],
   "toolbox": ["arcade-sdk", "aimade-mcp", "lead-qualifier", "autonomous-factory", "graph-engineering-demo", "aimade-drops", "godot-steam-kit", "draft-only-google-mcp", "claude-code-guardrails", "skills-as-memory", "llm-company-wiki", "mcp-relay", "remote-mcp-oauth", "shared-account-guard"],
   "games": [
-    {"id": "mud-and-steel", "name": "Mud and Steel", "repo": "mud-and-steel", "play": "https://mud-and-steel-kappa.vercel.app", "line": "WWI trench defence. Every model, texture and sound is generated in code."},
+    {"id": "mud-and-steel", "name": "Mud and Steel", "repo": "mud-and-steel", "play": "https://mud-and-steel-kappa.vercel.app", "line": "WWI trench defence, with every model and sound generated in code."},
     {"id": "in-the-mountains", "name": "In the Mountains", "repo": "in-the-mountains", "play": "https://aimade.games/g/in-the-mountains", "line": "Real-time counterinsurgency on a custom WebGL2 terrain renderer."}
   ],
   "work": [

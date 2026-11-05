@@ -55,12 +55,12 @@ def hero_style(t, loop):
 .h{{font:800 74px {SANS};fill:{t['ink']};letter-spacing:-2.5px}}.s{{font:400 25px {SANS};fill:{t['quiet']}}}
 .e{{font:600 22px {SANS};fill:{t['ink']}}}.em{{fill:{EMBER}}}.l{{font:700 13px {MONO};fill:{t['quiet']};letter-spacing:1.4px}}
 .base{{fill:{t['off']}}}.c{{fill:{EMBER};opacity:0;animation:burn {loop}s linear infinite}}
-@keyframes burn{{0%{{opacity:0}}1.5%{{opacity:1}}3%{{opacity:.78}}88%{{opacity:.78}}96%,100%{{opacity:0}}}}
+@keyframes burn{{0%{{opacity:0}}1.5%{{opacity:1}}3%{{opacity:.78}}88%{{opacity:.78}}96%,100%{{opacity:0}}
 .p{{fill:{EMBER};opacity:0;animation:rise 4s ease-out infinite}}
-@keyframes rise{{0%{{transform:translate(0,0);opacity:0}}12%{{opacity:.9}}100%{{transform:translate(var(--dx),var(--dy));opacity:0}}}}
+@keyframes rise{{0%{{transform:translate(0,0);opacity:0}}12%{{opacity:.9}}100%{{transform:translate(var(--dx),var(--dy));opacity:0}}
 .sp{{transform-box:fill-box;transform-origin:center;animation:fl 3.2s ease-in-out infinite}}
-@keyframes fl{{0%,100%{{transform:scale(1)}}42%{{transform:scale(1.13) rotate(-3deg)}}}}
-@media (prefers-reduced-motion:reduce){{.c,.p,.sp{{animation:none}}.c{{opacity:.78}}}}
+@keyframes fl{{0%,100%{{transform:scale(1)}}42%{{transform:scale(1.13) rotate(-3deg)}}
+@media (prefers-reduced-motion:reduce){{.c,.p,.sp{{animation:none}}.c{{opacity:.78}}
 </style>"""
 
 
@@ -92,8 +92,8 @@ def hero_phone(t, drops):
 def tile(t, site):
     img = data_uri(os.path.join(ROOT, "assets/raw", site["id"] + ".jpg"))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 420" width="640" height="420" role="img" aria-label="{esc(site['name'])}. {esc(site['line'])}">
-<style>.n{{font:800 28px {SANS};fill:{t['ink']};letter-spacing:-.6px}}.d{{font:400 18px {SANS};fill:{t['quiet']}}}.u{{font:600 15px {MONO};fill:{EMBER}}}
-.pan{{animation:pan 22s ease-in-out infinite alternate;transform-origin:50% 30%}}@keyframes pan{{from{{transform:scale(1)}}to{{transform:scale(1.08)}}}}{CALM}</style>
+<style>.n{{font:800 28px {SANS};fill:{t['ink']};letter-spacing:-.6px}}.d{{font:400 20px {SANS};fill:{t['quiet']}}}.u{{font:600 16px {MONO};fill:{EMBER}}}
+.pan{{animation:pan 22s ease-in-out infinite alternate;transform-origin:50% 30%}}@keyframes pan{{from{{transform:scale(1)}}to{{transform:scale(1.08)}}{CALM}</style>
 <clipPath id="c"><path d="M0 18a18 18 0 0 1 18-18h604a18 18 0 0 1 18 18v282H0z"/></clipPath>
 <rect fill="{t['bg']}" width="640" height="420" rx="18"/>
 <g clip-path="url(#c)"><image class="pan" href="{img}" width="640" height="400" preserveAspectRatio="xMidYMin slice"/></g>
@@ -115,12 +115,47 @@ def wall(t, count, tools):
     shift = half * (w + gap)
     label = f"A scrolling wall of screenshots from {count} games on aimade.games."
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-label="{label}">
-<style>.a{{animation:l 70s linear infinite}}.b{{animation:r 70s linear infinite}}@keyframes l{{to{{transform:translateX(-{shift}px)}}}}@keyframes r{{from{{transform:translateX(-{shift}px)}}to{{transform:translateX(0)}}}}
+<style>.a{{animation:l 70s linear infinite}}.b{{animation:r 70s linear infinite}}@keyframes l{{to{{transform:translateX(-{shift}px)}}@keyframes r{{from{{transform:translateX(-{shift}px)}}to{{transform:translateX(0)}}
 .n{{font:800 24px {SANS};fill:{t['ink']}}}.d{{font:400 18px {SANS};fill:{t['quiet']}}}{CALM}</style>
 <defs><clipPath id="r"><rect width="{w}" height="{h}" rx="10"/></clipPath><clipPath id="o"><rect width="1280" height="400" rx="18"/></clipPath>{''.join(defs)}</defs>
 <g clip-path="url(#o)"><rect fill="{t['bg']}" width="1280" height="400"/>{''.join(rows)}</g>
 <text class="n" x="24" y="372">{count} games on aimade.games</text>
 <text class="d" x="1256" y="372" text-anchor="end">Humans play. Agents publish through {tools} MCP tools.</text>
+</svg>"""
+
+
+def wall_phone(t, count, tools):
+    files = sorted(glob.glob(os.path.join(ROOT, "assets/raw/wall/*.jpg")))[:12]
+    w, h, gap = 240, 150, 10
+    defs = "".join(f'<image id="g{i}" href="{data_uri(f)}" width="{w}" height="{h}" clip-path="url(#r)"/>' for i, f in enumerate(files))
+    rows = []
+    for row, cls in ((0, "a"), (1, "b")):
+        cells = "".join(f'<use href="#g{row * 6 + n}" x="{n * (w + gap)}"/><use href="#g{row * 6 + n}" x="{(n + 6) * (w + gap)}"/>' for n in range(6))
+        rows.append(f'<g transform="translate(0,{18 + row * (h + gap)})"><g class="{cls}">{cells}</g></g>')
+    shift = 6 * (w + gap)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 450" width="640" height="450" role="img" aria-label="A scrolling wall of screenshots from {count} games on aimade.games.">
+<style>.a{{animation:l 40s linear infinite}}.b{{animation:r 40s linear infinite}}@keyframes l{{to{{transform:translateX(-{shift}px)}}}}@keyframes r{{from{{transform:translateX(-{shift}px)}}to{{transform:translateX(0)}}}}
+.n{{font:800 34px {SANS};fill:{t['ink']}}}.d{{font:400 23px {SANS};fill:{t['quiet']}}}{CALM}</style>
+<defs><clipPath id="r"><rect width="{w}" height="{h}" rx="10"/></clipPath><clipPath id="o"><rect width="640" height="450" rx="18"/></clipPath>{defs}</defs>
+<g clip-path="url(#o)"><rect fill="{t['bg']}" width="640" height="450"/>{''.join(rows)}</g>
+<text class="n" x="20" y="384">{count} games on aimade.games</text><text class="d" x="20" y="424">Agents publish through {tools} MCP tools.</text>
+</svg>"""
+
+
+def loop_phone(t):
+    steps = ["heartbeat", "read the constitution", "build", "verify", "improve the factory"]
+    boxes = ""
+    for i, step in enumerate(steps):
+        y = 30 + i * 112
+        boxes += f'<rect class="b" x="90" y="{y}" width="460" height="82" rx="14"/><rect class="on" x="90" y="{y}" width="460" height="82" rx="14" style="animation-delay:{i * .8}s"/><text class="t" x="320" y="{y + 51}" text-anchor="middle">{step}</text>'
+        if i < 4:
+            boxes += f'<path class="w" d="M320 {y + 82}V{y + 112}"/>'
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640" role="img" aria-label="The loop the factory ran: heartbeat, read the constitution, build, verify, improve the factory. A failed improvement reverted itself.">
+<style>.b,.w{{fill:none;stroke:{t['line']};stroke-width:2}}.t{{font:600 28px {SANS};fill:{t['ink']}}}
+.on{{fill:none;stroke:{EMBER};stroke-width:4;opacity:0;animation:p 9s linear infinite}}@keyframes p{{0%{{opacity:0}}2%{{opacity:1}}15%{{opacity:1}}19%,100%{{opacity:0}}}}{CALM}</style>
+<rect fill="{t['bg']}" width="640" height="640" rx="18"/>{boxes}
+<path class="w" stroke-dasharray="6 7" d="M90 519H40V71H90"/>
+<circle r="9" fill="{EMBER}"><animateMotion dur="9s" repeatCount="indefinite" path="M90 30H550V560H90V612H40V30Z"/></circle>
 </svg>"""
 
 
@@ -134,7 +169,7 @@ def loop(t):
     wires = "".join(f'<path class="w" d="M{xs[i] + 90} 96H{xs[i + 1] - 90}"/>' for i in range(4))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 230" width="1100" height="230" role="img" aria-label="The loop the factory ran: heartbeat, read the constitution, build, verify, improve the factory. A failed improvement reverted itself.">
 <style>.b,.w{{fill:none;stroke:{t['line']};stroke-width:1.5}}.t{{font:600 17px {SANS};fill:{t['ink']}}}.n{{font:400 14px {MONO};fill:{t['quiet']}}}
-.on{{fill:none;stroke:{EMBER};stroke-width:3;opacity:0;animation:p 9s linear infinite}}@keyframes p{{0%{{opacity:0}}2%{{opacity:1}}15%{{opacity:1}}19%,100%{{opacity:0}}}}{CALM}</style>
+.on{{fill:none;stroke:{EMBER};stroke-width:3;opacity:0;animation:p 9s linear infinite}}@keyframes p{{0%{{opacity:0}}2%{{opacity:1}}15%{{opacity:1}}19%,100%{{opacity:0}}{CALM}</style>
 <rect fill="{t['bg']}" width="1100" height="230" rx="18"/>{wires}{boxes}
 <path class="w" stroke-dasharray="5 6" d="M1080 96V184H20V96"/>
 <text class="n" x="550" y="212" text-anchor="middle">a failed improvement reverted itself, then the heartbeat fired again</text>
@@ -145,17 +180,17 @@ def loop(t):
 def blurb(text):
     """First sentence of a repo description, in at most two card lines."""
     first = re.split(r"(?<=[.:])\s", (text or "").replace(" \u2014 ", ", "))[0].rstrip(":.")
-    return textwrap.shorten(first, 122, placeholder="...")
+    return textwrap.shorten(first, 105, placeholder="...")
 
 
 def card(t, repo):
-    lines = textwrap.wrap(blurb(repo["description"]), 62)
-    desc = "".join(f'<text class="d" x="24" y="{84 + i * 24}">{esc(l)}</text>' for i, l in enumerate(lines))
+    lines = textwrap.wrap(blurb(repo["description"]), 54)
+    desc = "".join(f'<text class="d" x="24" y="{86 + i * 28}">{esc(l)}</text>' for i, l in enumerate(lines))
     meta = "  ·  ".join(x for x in (repo.get("language"), repo.get("license")) if x)
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 170" width="640" height="170" role="img" aria-label="{esc(repo['name'])}: {esc(repo['description'] or '')}">
-<style>.n{{font:700 23px {MONO};fill:{EMBER}}}.d{{font:400 18px {SANS};fill:{t['ink']}}}.m{{font:400 14px {MONO};fill:{t['quiet']}}}</style>
+<style>.n{{font:700 26px {MONO};fill:{EMBER}}}.d{{font:400 22px {SANS};fill:{t['ink']}}}.m{{font:400 16px {MONO};fill:{t['quiet']}}}</style>
 <rect fill="{t['bg']}" stroke="{t['line']}" x=".5" y=".5" width="639" height="169" rx="16"/>
-<text class="n" x="24" y="46">{esc(repo['name'])}</text>{desc}<text class="m" x="24" y="148">{esc(meta)}</text>
+<text class="n" x="24" y="46">{esc(repo['name'])}</text>{desc}<text class="m" x="24" y="152">{esc(meta)}</text>
 </svg>"""
 
 
@@ -165,8 +200,8 @@ def game(t, g):
     dur = n * 5
     imgs = "".join(f'<image class="f" href="{data_uri(f)}" width="640" height="360" style="animation-delay:{i * 5 - dur}s"/>' for i, f in enumerate(frames))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 450" width="640" height="450" role="img" aria-label="{esc(g['name'])}. {esc(g['line'])}">
-<style>.f{{opacity:0;animation:x {dur}s linear infinite}}@keyframes x{{0%{{opacity:0}}6%{{opacity:1}}{100 / n:.1f}%{{opacity:1}}{100 / n + 6:.1f}%,100%{{opacity:0}}}}
-.n{{font:800 26px {SANS};fill:{t['ink']}}}.d{{font:400 16.5px {SANS};fill:{t['quiet']}}}@media (prefers-reduced-motion:reduce){{.f{{animation:none;opacity:1}}}}</style>
+<style>.f{{opacity:0;animation:x {dur}s linear infinite}}@keyframes x{{0%{{opacity:0}}6%{{opacity:1}}{100 / n:.1f}%{{opacity:1}}{100 / n + 6:.1f}%,100%{{opacity:0}}
+.n{{font:800 26px {SANS};fill:{t['ink']}}}.d{{font:400 19px {SANS};fill:{t['quiet']}}}@media (prefers-reduced-motion:reduce){{.f{{animation:none;opacity:1}}</style>
 <clipPath id="c"><path d="M0 18a18 18 0 0 1 18-18h604a18 18 0 0 1 18 18v342H0z"/></clipPath>
 <rect fill="{t['bg']}" width="640" height="450" rx="18"/><g clip-path="url(#c)">{imgs}</g>
 <text class="n" x="24" y="402">{esc(g['name'])}</text><text class="d" x="24" y="430">{esc(g['line'])}</text>
@@ -190,9 +225,9 @@ def public_cards(names, repos):
 
 
 def readme(c, cards, count):
-    tiles = "\n".join(f'<a href="{s["url"]}">{picture("live-" + s["id"], s["name"] + ": " + s["line"], "49%")}</a>' for s in c["live"])
-    toolbox = "\n".join(f'<a href="{RAW}/{r["name"]}">{picture("repo-" + r["name"], r["name"], "49%")}</a>' for r in cards)
-    games = "\n".join(f'<a href="{g["play"]}">{picture("game-" + g["id"], g["name"] + ": " + g["line"], "49%")}</a>' for g in c["games"])
+    tiles = "\n".join(f'<a href="{s["url"]}">{picture("live-" + s["id"], s["name"] + ": " + s["line"], "400")}</a>' for s in c["live"])
+    toolbox = "\n".join(f'<a href="{RAW}/{r["name"]}">{picture("repo-" + r["name"], r["name"], "400")}</a>' for r in cards)
+    games = "\n".join(f'<a href="{g["play"]}">{picture("game-" + g["id"], g["name"] + ": " + g["line"], "400")}</a>' for g in c["games"])
     source = " · ".join(f'[{g["name"]} source]({RAW}/{g["repo"]})' for g in c["games"])
     work = "\n".join(f'- [{w["name"]}]({w["url"]}): {w["line"]}' for w in c["work"])
     return f"""<a href="https://chamainteligente.com">{picture("hero", "Elliot Himmelfarb, AI fluency coach and software consultant", "100%", phone=True)}</a>
@@ -205,13 +240,13 @@ I coach people on working with AI and build software with it. This page is gener
 
 ## The arcade
 
-<a href="https://aimade.games">{picture("wall", f"{count} games on aimade.games", "100%")}</a>
+<a href="https://aimade.games">{picture("wall", f"{count} games on aimade.games", "100%", phone=True)}</a>
 
 An arcade where AI agents are first-class users. They publish through a real MCP server, and every game gets identity, saves and leaderboards from one script tag.
 
 ## The machines
 
-{picture("loop", "The factory loop", "100%")}
+{picture("loop", "The factory loop", "100%", phone=True)}
 
 [autonomous-factory]({RAW}/autonomous-factory) ran on a 3-hour heartbeat until I stopped it on 2026-07-06, and a routine shipped [{c['drops']} physics games]({RAW}/aimade-drops) to the arcade, the last on 2026-09-10. Both are stopped, and the state files are all there to read.
 
@@ -259,7 +294,9 @@ def main():
         write(f"hero-{name}.svg", hero(t, c["drops"]))
         write(f"hero-phone-{name}.svg", hero_phone(t, c["drops"]))
         write(f"wall-{name}.svg", wall(t, count, c["mcp_tools"]))
+        write(f"wall-phone-{name}.svg", wall_phone(t, count, c["mcp_tools"]))
         write(f"loop-{name}.svg", loop(t))
+        write(f"loop-phone-{name}.svg", loop_phone(t))
         for s in c["live"]:
             write(f"live-{s['id']}-{name}.svg", tile(t, s))
         for g in c["games"]:
