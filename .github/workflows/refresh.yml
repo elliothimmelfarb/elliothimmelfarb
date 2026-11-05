@@ -1,8 +1,11 @@
 name: Refresh profile
 on:
   schedule:
-    - cron: "17 6 * * 1"
+    - cron: "17 6 1 * *"
   workflow_dispatch:
+  push:
+    branches: [build-readme]
+    paths: [.github/workflows/refresh.yml]
 permissions:
   contents: write
 jobs:
@@ -24,4 +27,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md assets
-          git diff --cached --quiet || (git commit -m "Weekly refresh" && git push)
+          git diff --cached --quiet || (git commit -m "Monthly refresh" && git push)
