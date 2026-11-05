@@ -1,0 +1,1 @@
+{"private":true,"type":"module","scripts":{"capture":"node generator/capture.mjs","build":"python3 generator/build.py"},"devDependencies":{"playwright":"^1.49.1"}}

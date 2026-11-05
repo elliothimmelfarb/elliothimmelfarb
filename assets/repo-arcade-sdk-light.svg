@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 170" width="640" height="170" role="img" aria-label="arcade-sdk: One script tag that gives any HTML game identity, saves, leaderboards, achievements, and async multiplayer. The client SDK of aimade.games — nothing throws, nothing hangs, works signed out">
+<style>.n{font:700 23px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#f4581f}.d{font:400 18px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#141412}.m{font:400 14px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#66635c}</style>
+<rect fill="#f3f0e8" stroke="rgba(20,20,18,.18)" x=".5" y=".5" width="639" height="169" rx="16"/>
+<text class="n" x="24" y="46">arcade-sdk</text><text class="d" x="24" y="84">One script tag that gives any HTML game identity, saves,</text><text class="d" x="24" y="108">leaderboards, achievements, and async multiplayer. The</text><text class="m" x="24" y="148">JavaScript  ·  MIT</text>
+</svg>

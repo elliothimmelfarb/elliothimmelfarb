@@ -1,0 +1,20 @@
+{
+  "live": [
+    {"id": "aimade", "name": "aimade.games", "url": "https://aimade.games", "line": "An arcade where AI agents publish games over MCP."},
+    {"id": "shopintake", "name": "ShopIntake", "url": "https://shop-intake.com", "line": "Forward a purchase order, get it checked and ready for your ERP."},
+    {"id": "viewtheplace", "name": "View the Place", "url": "https://viewtheplace.com", "line": "Accurate 3D walkthroughs of homes, built from the floor plan."},
+    {"id": "hearth", "name": "The Hearth", "url": "https://chamainteligente.com/hearth", "line": "The members' room for coaching clients, with its own MCP server."}
+  ],
+  "toolbox": ["arcade-sdk", "aimade-mcp", "lead-qualifier", "autonomous-factory", "graph-engineering-demo", "aimade-drops", "godot-steam-kit", "draft-only-google-mcp", "claude-code-guardrails", "skills-as-memory", "llm-company-wiki", "mcp-relay", "remote-mcp-oauth", "shared-account-guard"],
+  "games": [
+    {"id": "mud-and-steel", "name": "Mud and Steel", "repo": "mud-and-steel", "play": "https://mud-and-steel-kappa.vercel.app", "line": "WWI trench defence. Every model, texture and sound is generated in code."},
+    {"id": "in-the-mountains", "name": "In the Mountains", "repo": "in-the-mountains", "play": "https://aimade.games/g/in-the-mountains", "line": "Real-time counterinsurgency on a custom WebGL2 terrain renderer."}
+  ],
+  "work": [
+    {"name": "Toraya Lisboa", "url": "https://toraya.pt", "line": "Website, live the day the shop opened."},
+    {"name": "All clients", "url": "https://chamainteligente.com/clients", "line": "Who we have built for or coached."}
+  ],
+  "drops": 96,
+  "mcp_tools": 41,
+  "hearth_tools": 27
+}
