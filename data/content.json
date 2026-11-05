@@ -6,7 +6,7 @@
     {"id": "viewtheplace", "name": "View the Place", "url": "https://viewtheplace.com", "line": "Accurate 3D walkthroughs of homes, built from the floor plan."},
     {"id": "hearth", "name": "The Hearth", "url": "https://chamainteligente.com/hearth", "line": "The members' room for coaching clients, with its own MCP server."}
   ],
-  "toolbox": ["arcade-sdk", "aimade-mcp", "lead-qualifier", "autonomous-factory", "graph-engineering-demo", "aimade-drops", "godot-steam-kit", "draft-only-google-mcp", "claude-code-guardrails", "skills-as-memory", "llm-company-wiki", "mcp-relay", "remote-mcp-oauth", "shared-account-guard"],
+  "toolbox": ["llm-company-wiki", "skills-as-memory", "claude-code-guardrails", "draft-only-google-mcp", "mcp-relay", "remote-mcp-oauth", "shared-account-guard", "godot-steam-kit", "arcade-sdk", "aimade-mcp", "lead-qualifier", "autonomous-factory", "graph-engineering-demo", "aimade-drops"],
   "games": [
     {"id": "mud-and-steel", "name": "Mud and Steel", "repo": "mud-and-steel", "play": "https://mud-and-steel-kappa.vercel.app", "line": "WWI trench defence, with every model and sound generated in code."},
     {"id": "in-the-mountains", "name": "In the Mountains", "repo": "in-the-mountains", "play": "https://aimade.games/g/in-the-mountains", "line": "Real-time counterinsurgency on a custom WebGL2 terrain renderer."}

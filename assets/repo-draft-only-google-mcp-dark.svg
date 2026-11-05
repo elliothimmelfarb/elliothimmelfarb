@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 170" width="640" height="170" role="img" aria-label="draft-only-google-mcp: Gmail and Google Calendar MCP server for Claude that can read and draft but has no way to send email.">
+<style>.n{font:700 26px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#f4581f}.d{font:400 22px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#f3f0e8}.m{font:400 16px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#a7a297}</style>
+<rect fill="#141412" stroke="rgba(243,240,232,.2)" x=".5" y=".5" width="639" height="169" rx="16"/>
+<text class="n" x="24" y="46">draft-only-google-mcp</text><text class="d" x="24" y="86">Gmail and Google Calendar MCP server for Claude that</text><text class="d" x="24" y="114">can read and draft but has no way to send email</text><text class="m" x="24" y="152">Python  ·  MIT</text>
+</svg>
