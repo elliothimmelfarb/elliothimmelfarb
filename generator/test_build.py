@@ -17,6 +17,12 @@ class Build(unittest.TestCase):
     def test_readme_has_no_em_dash(self):
         self.assertNotIn("—", build.readme(CONTENT, [], 1))
 
+    def test_blurb_stops_at_the_first_sentence(self):
+        self.assertEqual(build.blurb("One tag. The rest."), "One tag")
+
+    def test_blurb_drops_em_dashes(self):
+        self.assertNotIn("\u2014", build.blurb("a \u2014 b"))
+
     def test_card_escapes_a_description(self):
         svg = build.card(build.THEMES["dark"], {"name": "a", "description": "x < y & z"})
         self.assertIn("x &lt; y &amp; z", svg)

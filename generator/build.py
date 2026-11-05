@@ -78,9 +78,9 @@ def hero(t, drops):
 
 def hero_phone(t, drops):
     label = 'Elliot Himmelfarb. AI fluency coach and software consultant.'
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 760" width="640" height="760" role="img" aria-label="{label}">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" width="640" height="800" role="img" aria-label="{label}">
 {hero_style(t, 16)}<style>.h{{font-size:76px}}.s{{font-size:31px}}.e{{font-size:30px}}.l{{font-size:17px}}</style>
-<rect fill="{t['bg']}" width="640" height="760" rx="18"/>
+<rect fill="{t['bg']}" width="640" height="800" rx="18"/>
 <g transform="translate(40,36) scale(1.15)">{MARK}<g class="sp">{SPARK}</g></g>{sparks(170, 230, 110, 150)}
 <text class="h" x="40" y="212">Elliot</text><text class="h" x="40" y="290">Himmelfarb</text>
 <text class="s" x="42" y="344">AI fluency coach and</text><text class="s" x="42" y="384">software consultant, Lisbon</text>
@@ -130,20 +130,26 @@ def loop(t):
     boxes = ""
     for i, (lines, x) in enumerate(zip(steps, xs)):
         text = "".join(f'<text class="t" x="{x}" y="{102 + j * 20 - (len(lines) - 1) * 10}" text-anchor="middle">{l}</text>' for j, l in enumerate(lines))
-        boxes += f'<rect class="b" x="{x - 90}" y="60" width="180" height="72" rx="12"/><rect class="on" x="{x - 90}" y="60" width="180" height="72" rx="12" style="animation-delay:{i * 1.5}s"/>{text}'
+        boxes += f'<rect class="b" x="{x - 90}" y="60" width="180" height="72" rx="12"/><rect class="on" x="{x - 90}" y="60" width="180" height="72" rx="12" style="animation-delay:{i * .8}s"/>{text}'
     wires = "".join(f'<path class="w" d="M{xs[i] + 90} 96H{xs[i + 1] - 90}"/>' for i in range(4))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 230" width="1100" height="230" role="img" aria-label="The loop the factory ran: heartbeat, read the constitution, build, verify, improve the factory. A failed improvement reverted itself.">
 <style>.b,.w{{fill:none;stroke:{t['line']};stroke-width:1.5}}.t{{font:600 17px {SANS};fill:{t['ink']}}}.n{{font:400 14px {MONO};fill:{t['quiet']}}}
 .on{{fill:none;stroke:{EMBER};stroke-width:3;opacity:0;animation:p 9s linear infinite}}@keyframes p{{0%{{opacity:0}}2%{{opacity:1}}15%{{opacity:1}}19%,100%{{opacity:0}}}}{CALM}</style>
 <rect fill="{t['bg']}" width="1100" height="230" rx="18"/>{wires}{boxes}
-<path class="w" stroke-dasharray="5 6" d="M990 132V184H110V132"/>
+<path class="w" stroke-dasharray="5 6" d="M1080 96V184H20V96"/>
 <text class="n" x="550" y="212" text-anchor="middle">a failed improvement reverted itself, then the heartbeat fired again</text>
-<circle r="7" fill="{EMBER}"><animateMotion dur="9s" repeatCount="indefinite" path="M110 96H990V184H110V96"/></circle>
+<circle r="7" fill="{EMBER}"><animateMotion dur="9s" repeatCount="indefinite" path="M20 60H1080V184H20Z"/></circle>
 </svg>"""
 
 
+def blurb(text):
+    """First sentence of a repo description, in at most two card lines."""
+    first = re.split(r"(?<=[.:])\s", (text or "").replace(" \u2014 ", ", "))[0].rstrip(":.")
+    return textwrap.shorten(first, 122, placeholder="...")
+
+
 def card(t, repo):
-    lines = textwrap.wrap(repo["description"] or "", 58)[:2]
+    lines = textwrap.wrap(blurb(repo["description"]), 62)
     desc = "".join(f'<text class="d" x="24" y="{84 + i * 24}">{esc(l)}</text>' for i, l in enumerate(lines))
     meta = "  ·  ".join(x for x in (repo.get("language"), repo.get("license")) if x)
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 170" width="640" height="170" role="img" aria-label="{esc(repo['name'])}: {esc(repo['description'] or '')}">

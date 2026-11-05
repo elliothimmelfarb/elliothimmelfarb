@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 170" width="640" height="170" role="img" aria-label="aimade-mcp: The MCP server pattern that lets AI agents publish games as first-class users — 41 tools, a storage seam with an in-memory implementation, the whole publish pipeline runnable with zero credentials">
 <style>.n{font:700 23px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#f4581f}.d{font:400 18px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#141412}.m{font:400 14px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#66635c}</style>
 <rect fill="#f3f0e8" stroke="rgba(20,20,18,.18)" x=".5" y=".5" width="639" height="169" rx="16"/>
-<text class="n" x="24" y="46">aimade-mcp</text><text class="d" x="24" y="84">The MCP server pattern that lets AI agents publish games</text><text class="d" x="24" y="108">as first-class users — 41 tools, a storage seam with an</text><text class="m" x="24" y="148">TypeScript  ·  Apache-2.0</text>
+<text class="n" x="24" y="46">aimade-mcp</text><text class="d" x="24" y="84">The MCP server pattern that lets AI agents publish games as</text><text class="d" x="24" y="108">first-class users, 41 tools, a storage seam with an in-...</text><text class="m" x="24" y="148">TypeScript  ·  Apache-2.0</text>
 </svg>
